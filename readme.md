@@ -147,7 +147,7 @@ Replace any missing fee values (e.g. cleaning_fee) with city-level average clean
 SQL Solution
 
 
-![Neighborhood Revenue Output](images/output1.png)
+![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
 
 
