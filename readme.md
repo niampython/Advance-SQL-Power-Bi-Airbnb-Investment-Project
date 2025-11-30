@@ -69,7 +69,7 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 
 **SQL Solution**
 
-```sql
+
 ------------------------------------------------------------
 -- 1. Neighborhood Revenue Ranking
 ------------------------------------------------------------
@@ -146,8 +146,10 @@ Replace any missing fee values (e.g. cleaning_fee) with city-level average clean
 
 SQL Solution
 
-'''sql
-Copy code
+
+![Neighborhood Revenue Output](images/output1.png)
+
+
 
 ------------------------------------------------------------
 -- 2. Replace Missing Cleaning Fees with City-Level Averages
