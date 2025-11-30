@@ -142,6 +142,7 @@ ORDER BY
 ```
 📊 Sample Output
 Top-performing neighborhoods in Nairobi by TTM revenue:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
 2️⃣ Replace Missing Fees & Adjust Cleaning Fee Revenue
@@ -205,6 +206,7 @@ ORDER BY
 ```
 📊 Sample Output
 Average cleaning fee by Nairobi neighborhood after imputation:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output2.png)
 
 3️⃣ Occupancy Buckets (Last 90 Days, Pivot)
@@ -275,6 +277,7 @@ Neighborhood-level occupancy buckets for the last 90 days:
 ```
 📊 Sample Output
 Neighborhood-level occupancy buckets for the last 90 days:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output3.png)
 
 4️⃣ Real Estate Price-to-Average Nightly Rate Ratio
@@ -340,6 +343,7 @@ GROUP BY
 ```
 📊 Sample Output
 Real estate locations ranked by price vs. short-term rental economics:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output4.png)
 
 
@@ -421,6 +425,7 @@ FROM Total_Revenue;
 ```
 📊 Sample Output
 Top Nairobi neighborhoods by share of total rental revenue:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output5.png)
 
 
@@ -521,6 +526,7 @@ ORDER BY
 ```
 📊 Sample Output
 Cities ranked by investment fundamentals:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output6.png)
 
 
@@ -619,6 +625,7 @@ ORDER BY
 ```
 📊 Sample Output
 Best bedroom configuration by revenue per square foot:
+
 ![Neighborhood Revenue Output](SQL%20Docs/output7.png)
 
 
@@ -704,6 +711,7 @@ ORDER BY
 
 📊 Sample Output
 Historical vs future occupancy and ADR (raw values):
+
 ![Neighborhood Revenue Output](SQL%20Docs/output8.png)
 
 
@@ -834,6 +842,7 @@ ORDER BY
 
 📊 Sample Output
 Formatted comparison of historical vs future occupancy and ADR (USD + %):
+
 ![Neighborhood Revenue Output](SQL%20Docs/output9.png)
 
 📊 Sample Power BI Dashboard
@@ -850,7 +859,7 @@ Occupancy and ADR breakdowns by bedroom count
 
 Example Dashboard
 
-![Kenya Airbnb Metrics Analysis Dashboard](images/Kenya's Airbnb Metrics Analysis Dashboard.png)
+![Kenya Airbnb Metrics Analysis Dashboard](Power%20BI/Kenya's Airbnb Metrics Analysis Dashboard.png)
 
 This dashboard allows an investor to:
 
@@ -865,35 +874,35 @@ The strongest occupancy trends
 The best performing property types
 
 ⚙️ Challenges & How I Overcame Them
-1. Joining Airbnb Listings to Neighborhoods
+🔗 Joining Airbnb Listings to Neighborhoods
 
 Challenge: Airbnb data was keyed by latitude/longitude, while neighborhood names lived in a separate coordinates_kenya table.
 
 Solution: Used precise lat/long joins plus careful cleaning of coordinate columns to map listings to the correct neighborhood, enabling neighborhood-level revenue and occupancy analysis.
 
-2. Cleaning Currency & Converting KES → USD
+💱 Cleaning Currency & Converting KES → USD
 
 Challenge: Monetary values (like Price in Nairobi_Property_Pricing) were stored as strings with prefixes like "KSH " and embedded spaces.
 
 Solution: Applied REPLACE and CAST in SQL to turn them into numeric types, then consistently applied a KES → USD exchange rate to standardize all financial metrics for investors.
 
-3. Handling Missing & Zero Cleaning Fees
+🧽 Handling Missing & Zero Cleaning Fees
 
 Challenge: Many hosts had cleaning_fee = 0 or missing values, which distorted average fee calculations.
 
 Solution: Built a two-stage CTE:
 
-First, compute city + neighborhood–level average cleaning fee.
+Compute city + neighborhood–level average cleaning fee.
 
-Then use COALESCE to impute missing/zero cleaning fees based on those averages.
+Use COALESCE to impute missing/zero cleaning fees based on those averages.
 
-4. Time-Series Alignment Across Multiple Metric Tables
+⏱️ Time-Series Alignment Across Multiple Metric Tables
 
 Challenge: Historical and future tables (occupancy_last_12_month, occupancyFuture_next_30_days, rateByDailyAverage_last_12_month, rateFuture_next_180_days, etc.) used different date formats and granularities.
 
 Solution: Used TRY_CONVERT(date, [Date]) to normalize all date columns and joined on clean date keys, enabling accurate calculation of MoM revenue trends and future booking pace.
 
-5. Environment & Connectivity (Python → SQL Server)
+🖥️ Environment & Connectivity (Python → SQL Server)
 
 Challenge: On a new machine, Python could not connect to SQL Server due to driver issues and missing environments (ODBC error 08001, ipykernel issues in VS Code).
 
@@ -903,9 +912,9 @@ Installed Miniconda and created an isolated environment airbnb-sql with pandas, 
 
 Registered the environment as a Jupyter kernel for VS Code.
 
-Used SQLAlchemy’s URL.create with Windows authentication and the correct SQL Server instance to reliably load all county CSVs into [Airbnb_data].
+Used SQLAlchemy’s connection string with Windows authentication and the correct SQL Server instance to reliably load all county CSVs into [Airbnb_data].
 
-6. Modeling Investment Metrics for Real-World Decisions
+📈 Modeling Investment Metrics for Real-World Decisions
 
 Challenge: Translating raw Airbnb metrics into something an investor can act on (e.g., “Is Nakuru better than Nairobi?”).
 
@@ -935,21 +944,20 @@ Quantify how future occupancy and ADR trends are moving compared to the last 12 
 
 This README ties together the SQL analytics layer and the Power BI visualization layer to provide a full, end-to-end view of short-term rental investment potential in Kenya.
 
-7. How to Use This Repository
-
-Run the SQL Scripts
+🚀 How to Use This Repository
+1. Run the SQL Scripts
 
 Create and load the underlying tables in SQL Server using the Python ETL scripts.
 
 Execute each query in this README to reproduce the analytical outputs.
 
-Connect Power BI
+2. Connect Power BI
 
 Point Power BI to the same SQL Server database (Airbnb_data).
 
 Recreate or extend the provided dashboard visuals.
 
-Adapt to Other Markets
+3. Adapt to Other Markets
 
 Replace Kenya-specific tables with other countries/regions.
 
