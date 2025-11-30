@@ -149,11 +149,6 @@ Business Question
 
 Replace any missing fee values (e.g. cleaning_fee) with city-level average cleaning fee, then compute adjusted city / neighborhood cleaning-fee metrics.
 
-SQL Solution
-
-
-
-
 
 ```sql
 ------------------------------------------------------------
@@ -208,9 +203,9 @@ GROUP BY
 ORDER BY 
     AVG(Cleaning_Fee) DESC;
 ```
-![Neighborhood Revenue Output](SQL%20Docs/output2.png)
-Average cleaning fee by Nairobi neighborhood after imputation:
 
+Average cleaning fee by Nairobi neighborhood after imputation:
+![Neighborhood Revenue Output](SQL%20Docs/output2.png)
 
 3️⃣ Occupancy Buckets (Last 90 Days, Pivot)
 Business Question
