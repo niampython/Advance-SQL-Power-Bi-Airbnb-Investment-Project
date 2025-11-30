@@ -2,47 +2,51 @@
 
 ## 1. Project Overview
 
-This project performs a **full investment analysis of short-term rentals in Kenya**, using detailed Airbnb performance data combined with FX rates and local real-estate pricing.
+This project performs a full investment analysis of short-term rentals in Kenya, using detailed Airbnb performance data combined with FX rates and local real-estate pricing.
 
 The core business questions are:
 
-- **Is investing in short-term rentals in Kenya worth it?**
-- **Which cities and neighborhoods provide the strongest returns?**
-- **What daily rate should an investor target?**
-- **What type of property is most attractive from an investment standpoint?**
+- Is investing in short-term rentals in Kenya worth it?  
+- Which cities and neighborhoods provide the strongest returns?  
+- What daily rate should an investor target?  
+- What type of property is most attractive from an investment standpoint?  
   - Number of bedrooms and bathrooms  
   - Property type (house, apartment, B&B, etc.)  
   - Listing type (entire home, private room, shared room)
 
-Data focuses on major Kenyan markets such as **Nairobi, Mombasa, Nakuru, Kiambu, and Kisumu**, and includes:
+Data focuses on major Kenyan markets such as Nairobi, Mombasa, Nakuru, Kiambu, and Kisumu, and includes:
 
 - Trailing 12-month revenue, ADR, and occupancy metrics  
 - Future occupancy and ADR projections  
 - Bedroom-level revenue  
 - City-level and neighborhood-level performance  
-- Nairobi real-estate price data for purchase vs. rent trade-off
+- Nairobi real-estate price data for purchase vs. rent trade-off  
 
-The SQL problems below are framed as **analytics interview-style questions**, each answered with a documented T-SQL solution and a sample output.
+The SQL problems below are framed as analytics interview-style questions, each answered with a documented T-SQL solution and a sample output.
 
 ---
 
 ## 2. Tools & Technologies
 
-- **Database & Querying**
-  - Microsoft SQL Server
-  - SQL Server Management Studio (SSMS)
-- **Data Engineering**
-  - Python (pandas, SQLAlchemy, pyodbc) for loading CSVs into SQL Server
-- **Analytics & Visualization**
-  - Microsoft Power BI (DAX, Power Query, drill-through, bookmarks)
-- **Supporting Assets**
-  - Excel / CSV exports from Airdna / Airbnb data
-  - Nairobi real-estate price tables
-  - **Data Sources**
-  - Airbnb metrics by listing, neighborhood, city, and time
-  - Kenyan exchange rates (`kenya_exchange_rates_daily`)
-  - Nairobi property listings & pricing (`Nairobi_Property_Pricing`)
-  - Occupancy, ADR, and revenue tables (historical & future)
+### Database & Querying
+- Microsoft SQL Server  
+- SQL Server Management Studio (SSMS)  
+
+### Data Engineering
+- Python (pandas, SQLAlchemy, pyodbc) for loading CSVs into SQL Server  
+
+### Analytics & Visualization
+- Microsoft Power BI (DAX, Power Query, drill-through, bookmarks)  
+
+### Supporting Assets
+- Excel / CSV exports from Airdna / Airbnb data  
+- Nairobi real-estate price tables  
+
+### Data Sources
+- Airbnb metrics by listing, neighborhood, city, and time  
+- Kenyan exchange rates (`kenya_exchange_rates_daily`)  
+- Nairobi property listings & pricing (`Nairobi_Property_Pricing`)  
+- Occupancy, ADR, and revenue tables (historical & future)  
 
 ---
 
@@ -50,15 +54,15 @@ The SQL problems below are framed as **analytics interview-style questions**, ea
 
 Each section below contains:
 
-1. The **business-focused SQL problem**  
-2. The **full annotated SQL solution**  
-3. The **sample output** 
+- The business-focused SQL problem  
+- The full annotated SQL solution  
+- The sample output  
 
 ---
 
-### 1️⃣ Neighborhood Revenue Ranking
+## 1️⃣ Neighborhood Revenue Ranking
 
-**Business Question**
+### 🧩 Business Question
 
 Aggregate Airbnb data at the **Neighborhood** level and compute:
 
@@ -67,9 +71,11 @@ Aggregate Airbnb data at the **Neighborhood** level and compute:
 
 Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 
-**SQL Solution**
+---
 
+### 🧮 SQL Solution
 
+```sql
 ------------------------------------------------------------
 -- 1. Neighborhood Revenue Ranking
 ------------------------------------------------------------
@@ -80,7 +86,7 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 --      • Average TTM Rate (Native)
 --  - Rank neighborhoods within each City by TTM Revenue
 ------------------------------------------------------------
-'''sql
+
 WITH CTE AS (
     SELECT 
         A.City,
@@ -133,8 +139,8 @@ CROSS APPLY (
     ORDER BY [Exchange_Rate_KES_USD] DESC
 ) AS ksh
 ORDER BY 
-    TTM_Revenue_Native_by_Neighborhood_Rank ASC; 
-'''sql    
+    TTM_Revenue_Native_by_Neighborhood_Rank ASC;
+'''    
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
 
