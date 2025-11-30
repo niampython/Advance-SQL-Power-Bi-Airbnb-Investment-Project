@@ -135,7 +135,7 @@ CROSS APPLY (
 ORDER BY 
     TTM_Revenue_Native_by_Neighborhood_Rank ASC;
 '''
-![Neighborhood Revenue Output](SQL Docs/output1.png)
+![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 Top-performing neighborhoods in Nairobi by TTM revenue:
 
 
@@ -147,7 +147,7 @@ Replace any missing fee values (e.g. cleaning_fee) with city-level average clean
 SQL Solution
 
 
-![Neighborhood Revenue Output](SQL%20Docs/output1.png)
+
 
 
 
