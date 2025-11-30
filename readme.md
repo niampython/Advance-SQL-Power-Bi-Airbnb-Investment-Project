@@ -80,7 +80,7 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 --      • Average TTM Rate (Native)
 --  - Rank neighborhoods within each City by TTM Revenue
 ------------------------------------------------------------
-
+'''sql
 WITH CTE AS (
     SELECT 
         A.City,
@@ -134,8 +134,8 @@ CROSS APPLY (
 ) AS ksh
 ORDER BY 
     TTM_Revenue_Native_by_Neighborhood_Rank ASC;
-Sample Output
-
+'''
+![Neighborhood Revenue Output](SQL Docs/output1.png)
 Top-performing neighborhoods in Nairobi by TTM revenue:
 
 
