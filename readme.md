@@ -859,7 +859,7 @@ Occupancy and ADR breakdowns by bedroom count
 
 Example Dashboard
 
-![Kenya Airbnb Metrics Analysis Dashboard](Power%20BI/Kenya's Airbnb Metrics Analysis Dashboard.png)
+![Kenya Airbnb Metrics Analysis Dashboard](Power%20BI/Kenya's%20Airbnb%20Metrics%20Analysis%20Dashboard.png)
 
 This dashboard allows an investor to:
 
