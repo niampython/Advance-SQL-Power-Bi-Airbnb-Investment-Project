@@ -158,7 +158,7 @@ SQL Solution
 
 
 
-
+'''sql
 ------------------------------------------------------------
 -- 2. Replace Missing Cleaning Fees with City-Level Averages
 ------------------------------------------------------------
@@ -210,8 +210,8 @@ GROUP BY
     Neighborhood
 ORDER BY 
     AVG(Cleaning_Fee) DESC;
-Sample Output
-
+```
+![Neighborhood Revenue Output](SQL%20Docs/output2.png)
 Average cleaning fee by Nairobi neighborhood after imputation:
 
 
