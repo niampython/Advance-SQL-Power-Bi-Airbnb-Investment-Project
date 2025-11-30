@@ -146,7 +146,7 @@ Replace any missing fee values (e.g. cleaning_fee) with city-level average clean
 
 SQL Solution
 
-sql'''
+'''sql
 Copy code
 
 ------------------------------------------------------------
