@@ -140,16 +140,16 @@ CROSS APPLY (
 ORDER BY 
     TTM_Revenue_Native_by_Neighborhood_Rank ASC;
 ```
- 
+📊 Sample Output
 Top-performing neighborhoods in Nairobi by TTM revenue:
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
 2️⃣ Replace Missing Fees & Adjust Cleaning Fee Revenue
-Business Question
+🧩 Business Question
 
 Replace any missing fee values (e.g. cleaning_fee) with city-level average cleaning fee, then compute adjusted city / neighborhood cleaning-fee metrics.
 
-
+🧮 SQL Solution
 ```sql
 ------------------------------------------------------------
 -- 2. Replace Missing Cleaning Fees with City-Level Averages
@@ -203,12 +203,12 @@ GROUP BY
 ORDER BY 
     AVG(Cleaning_Fee) DESC;
 ```
-
+📊 Sample Output
 Average cleaning fee by Nairobi neighborhood after imputation:
 ![Neighborhood Revenue Output](SQL%20Docs/output2.png)
 
 3️⃣ Occupancy Buckets (Last 90 Days, Pivot)
-Business Question
+🧩 Business Question
 
 Create a pivot-style query that, for each neighborhood, buckets average last 90 reserved days into:
 
@@ -218,10 +218,9 @@ Moderate Occupancy: 31–60 days
 
 High Occupancy: 61–90 days
 
-SQL Solution
+🧮 SQL Solution
 
-sql
-Copy code
+```sql
 ------------------------------------------------------------
 -- 3. Occupancy Buckets for Last 90 Days (Pivot)
 ------------------------------------------------------------
@@ -273,10 +272,13 @@ ORDER BY
 Sample Output
 
 Neighborhood-level occupancy buckets for the last 90 days:
-
+```
+📊 Sample Output
+Neighborhood-level occupancy buckets for the last 90 days:
+![Neighborhood Revenue Output](SQL%20Docs/output3.png)
 
 4️⃣ Real Estate Price-to-Average Nightly Rate Ratio
-Business Question
+🧩 Business Question
 
 Join Airbnb neighborhoods with Nairobi real estate locations and, for each Location:
 
@@ -284,10 +286,9 @@ Calculate annual stay cost (ADR × 365)
 
 Compute Real Estate Price–to–Avg Nightly Rate ratio to compare buying a property vs. renting it as a guest.
 
-SQL Solution
+🧮 SQL Solution
 
-sql
-Copy code
+```sql
 ------------------------------------------------------------
 -- 4. Real Estate Price-to-Avg Nightly Rate Ratio
 ------------------------------------------------------------
@@ -336,13 +337,14 @@ WHERE
     R.Location IS NOT NULL
 GROUP BY 
     R.Location;
-Sample Output
-
+```
+📊 Sample Output
 Real estate locations ranked by price vs. short-term rental economics:
+![Neighborhood Revenue Output](SQL%20Docs/output4.png)
 
 
 5️⃣ City / Neighborhood Contribution to National Revenue
-Business Question
+🧩 Business Question
 
 Aggregate Airbnb listings by city / neighborhood and compute:
 
@@ -354,10 +356,9 @@ Each city’s (or neighborhood’s) percent contribution
 
 Rank by total revenue
 
-SQL Solution
+🧮 SQL Solution
 
-sql
-Copy code
+```sql
 ------------------------------------------------------------
 -- 5. City/Neighborhood Contribution to National Revenue
 ------------------------------------------------------------
@@ -417,13 +418,14 @@ SELECT
         ORDER BY Total_Revenue * @Exchange_Rate DESC
     ) AS [Rank of Each City Percentage Contribution]
 FROM Total_Revenue;
-Sample Output
-
+```
+📊 Sample Output
 Top Nairobi neighborhoods by share of total rental revenue:
+![Neighborhood Revenue Output](SQL%20Docs/output5.png)
 
 
 6️⃣ Strongest Investment Fundamentals (Last 12 Months)
-Business Question
+🧩 Business Question
 
 “Which cities delivered the strongest investment fundamentals over the last 12 months?”
 
@@ -431,10 +433,8 @@ Use the composite score:
 
 Score = (Average Daily Rate × Average Occupancy) + Average Monthly Revenue Change
 
-SQL Solution
-
-sql
-Copy code
+🧮 SQL Solution
+```sql
 /*===========================================================
   6. Strongest Investment Fundamentals (Last 12 Months)
 ===========================================================
@@ -518,22 +518,24 @@ SELECT TOP 5
 FROM CityMetrics
 ORDER BY 
     Investment_Score DESC;
-Sample Output
-
+```
+📊 Sample Output
 Cities ranked by investment fundamentals:
+![Neighborhood Revenue Output](SQL%20Docs/output6.png)
 
 
 7️⃣ Highest Revenue per Square Foot by Bedroom Type
-Business Question
+🧩 Business Question
 
 “Which bedroom type yields the highest revenue per square foot in each city?”
 
+Use:
+
 Score = Avg Monthly Revenue / Estimated SqFt
 
-SQL Solution
+🧮 SQL Solution
 
-sql
-Copy code
+```sql
 /*===========================================================
   7. Highest Revenue per SqFt by Bedroom Type
 ===========================================================
@@ -614,20 +616,20 @@ FROM RevenuePerSqFt
 WHERE rn = 1
 ORDER BY 
     Revenue_Per_SqFt DESC;
-Sample Output
-
+```
+📊 Sample Output
 Best bedroom configuration by revenue per square foot:
+![Neighborhood Revenue Output](SQL%20Docs/output7.png)
 
 
 8️⃣ Strongest Future Booking Pace & ADR Trend
-Business Question
+🧩 Business Question
 
 “Which cities show the strongest future booking pace, and how does future ADR compare to historical ADR?”
 
-SQL Solution
+🧮 SQL Solution
 
-sql
-Copy code
+```sql
 /*===========================================================
   8. Strongest Future Booking Pace vs Historical Metrics
 ===========================================================
@@ -698,13 +700,15 @@ ORDER BY
     -- Strongest combined improvement first
     (Future_30Day_Occupancy - Hist_Occupancy)
     + (Future_180Day_ADR - Hist_ADR) DESC;
-Sample Output
+```
 
+📊 Sample Output
 Historical vs future occupancy and ADR (raw values):
+![Neighborhood Revenue Output](SQL%20Docs/output8.png)
 
 
 9️⃣ Future Booking Pace vs Historical (Final – USD & % Formatting)
-Business Question
+🧩 Business Question
 
 Use the real production tables to compare historical vs future occupancy & ADR, fully formatted:
 
@@ -714,9 +718,9 @@ Historical vs Future ADR (USD)
 
 Trend columns with clean formatting
 
-SQL Solution
+🧮 SQL Solution
 
-sql
+```sql
 Copy code
 /*===========================================================
   9. Future Booking Pace & ADR Trend (Final Version)
@@ -826,7 +830,11 @@ ORDER BY
     -- Strongest combined improvement first
     (Future_Occ_30 - Hist_Occ) 
     + (Future_ADR_USD - Hist_ADR_USD) DESC;
-Sample Output
+```
+
+📊 Sample Output
+Formatted comparison of historical vs future occupancy and ADR (USD + %):
+![Neighborhood Revenue Output](SQL%20Docs/output9.png)
 
 📊 Sample Power BI Dashboard
 
