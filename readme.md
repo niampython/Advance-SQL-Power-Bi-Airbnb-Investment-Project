@@ -75,7 +75,6 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 
 ### 🧮 SQL Solution
 
-```sql
 ------------------------------------------------------------
 -- 1. Neighborhood Revenue Ranking
 ------------------------------------------------------------
@@ -86,7 +85,7 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 --      • Average TTM Rate (Native)
 --  - Rank neighborhoods within each City by TTM Revenue
 ------------------------------------------------------------
-
+```sql
 WITH CTE AS (
     SELECT 
         A.City,
