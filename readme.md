@@ -138,7 +138,8 @@ CROSS APPLY (
     ORDER BY [Exchange_Rate_KES_USD] DESC
 ) AS ksh
 ORDER BY 
-    TTM_Revenue_Native_by_Neighborhood_Rank ASC;'''
+    TTM_Revenue_Native_by_Neighborhood_Rank ASC;
+```
  
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
