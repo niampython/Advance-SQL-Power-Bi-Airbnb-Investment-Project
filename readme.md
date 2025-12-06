@@ -968,3 +968,10 @@ Ranking neighborhoods
 Future vs historical booking trends
 
 Property-type and bedroom-level performance.
+
+
+### 📽 Presentation Slide Deck
+
+💾 **[Download Power BI Project Presentation (.pptx)](Power%20BI/Advance%20SQL%20-%20Power%20Bi%20Airbnb%20Investment%20Project%20Power%20Point.pptx)**  
+*(Click to download — opens in PowerPoint)*
+
