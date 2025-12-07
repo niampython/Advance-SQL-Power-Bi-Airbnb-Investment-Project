@@ -165,17 +165,17 @@ CROSS APPLY (
 ORDER BY 
     TTM_Revenue_Native_by_Neighborhood_Rank ASC;
 ```
-📊 Sample Output
+### 📊 Sample Output
 Top-performing neighborhoods in Nairobi by TTM revenue:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
 2️⃣ Replace Missing Fees & Adjust Cleaning Fee Revenue
-🧩 Business Question
+### 🧩 Business Question
 
 Replace any missing fee values (e.g. cleaning_fee) with city-level average cleaning fee, then compute adjusted city / neighborhood cleaning-fee metrics.
 
-🧮 SQL Solution
+### 🧮 SQL Solution
 ```sql
 ------------------------------------------------------------
 -- 2. Replace Missing Cleaning Fees with City-Level Averages
@@ -229,13 +229,13 @@ GROUP BY
 ORDER BY 
     AVG(Cleaning_Fee) DESC;
 ```
-📊 Sample Output
+### 📊 Sample Output
 Average cleaning fee by Nairobi neighborhood after imputation:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output2.png)
 
 3️⃣ Occupancy Buckets (Last 90 Days, Pivot)
-🧩 Business Question
+### 🧩 Business Question
 
 Create a pivot-style query that, for each neighborhood, buckets average last 90 reserved days into:
 
@@ -245,7 +245,7 @@ Moderate Occupancy: 31–60 days
 
 High Occupancy: 61–90 days
 
-🧮 SQL Solution
+### 🧮 SQL Solution
 
 ```sql
 ------------------------------------------------------------
@@ -741,7 +741,7 @@ Historical vs future occupancy and ADR (raw values):
 
 
 9️⃣ Future Booking Pace vs Historical (Final – USD & % Formatting)
-🧩 Business Question
+##🧩 Business Question
 
 Use the real production tables to compare historical vs future occupancy & ADR, fully formatted:
 
@@ -751,7 +751,7 @@ Historical vs Future ADR (USD)
 
 Trend columns with clean formatting
 
-🧮 SQL Solution
+## 🧮 SQL Solution
 
 ```sql
 Copy code
@@ -865,13 +865,13 @@ ORDER BY
     + (Future_ADR_USD - Hist_ADR_USD) DESC;
 ```
 
-📊 Sample Output
+### 📊 Sample Output
 Formatted comparison of historical vs future occupancy and ADR (USD + %):
 
 ![Neighborhood Revenue Output](SQL%20Docs/output9.png)
 
 
-# ⚙️ Challenges & How I Overcame Them
+## ⚙️ Challenges & How I Overcame Them
 ### 🔗 Joining Airbnb Listings to Neighborhoods
 
 Challenge: Airbnb data was keyed by latitude/longitude, while neighborhood names lived in a separate coordinates_kenya table.
@@ -924,7 +924,7 @@ Built per-sqft revenue metrics by bedroom type to guide property selection.
 
 Surfaced everything in Power BI with investor-friendly visuals and filterable views.
 
-# 🧾 Investor Takeaways
+## 🧾 Investor Takeaways
 
 From this analysis, an investor can:
 
@@ -942,7 +942,7 @@ Quantify how future occupancy and ADR trends are moving compared to the last 12 
 
 This README ties together the SQL analytics layer and the Power BI visualization layer to provide a full, end-to-end view of short-term rental investment potential in Kenya.
 
-# 🚀 How to Use This Repository
+## 🚀 How to Use This Repository
 ### 1. Run the SQL Scripts
 
 Create and load the underlying tables in SQL Server using the Python ETL scripts.
