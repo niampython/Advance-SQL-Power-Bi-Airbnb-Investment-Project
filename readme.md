@@ -870,32 +870,8 @@ Formatted comparison of historical vs future occupancy and ADR (USD + %):
 
 ![Neighborhood Revenue Output](SQL%20Docs/output9.png)
 
-📊 Sample Power BI Dashboard
 
-The SQL models above are surfaced in Power BI to give investors an interactive view of performance:
-
-12-month revenue trends by property type
-
-Average ADR and occupancy trends by city
-
-Revenue per available room (RevPAR) by city
-
-Occupancy and ADR breakdowns by bedroom count
-
-
-This dashboard allows an investor to:
-
-Filter by City and Date range
-
-See which cities (Nairobi, Mombasa, Kiambu, Kisumu, Nakuru) have:
-
-The highest RevPAR
-
-The strongest occupancy trends
-
-The best performing property types
-
-## ⚙️ Challenges & How I Overcame Them
+# ⚙️ Challenges & How I Overcame Them
 ### 🔗 Joining Airbnb Listings to Neighborhoods
 
 Challenge: Airbnb data was keyed by latitude/longitude, while neighborhood names lived in a separate coordinates_kenya table.
@@ -947,8 +923,8 @@ Defined clear investment scores combining ADR, occupancy, and revenue trends.
 Built per-sqft revenue metrics by bedroom type to guide property selection.
 
 Surfaced everything in Power BI with investor-friendly visuals and filterable views.
----
-## 🧾 Investor Takeaways
+
+# 🧾 Investor Takeaways
 
 From this analysis, an investor can:
 
@@ -966,7 +942,7 @@ Quantify how future occupancy and ADR trends are moving compared to the last 12 
 
 This README ties together the SQL analytics layer and the Power BI visualization layer to provide a full, end-to-end view of short-term rental investment potential in Kenya.
 
-## 🚀 How to Use This Repository
+# 🚀 How to Use This Repository
 ### 1. Run the SQL Scripts
 
 Create and load the underlying tables in SQL Server using the Python ETL scripts.
