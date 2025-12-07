@@ -98,7 +98,7 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 
 ---
 
-### 🧮 SQL Solution
+ 🧮 SQL Solution
 ```sql
 ------------------------------------------------------------
 -- 1. Neighborhood Revenue Ranking
@@ -165,17 +165,17 @@ CROSS APPLY (
 ORDER BY 
     TTM_Revenue_Native_by_Neighborhood_Rank ASC;
 ```
-### 📊 Sample Output
+📊 Sample Output
 Top-performing neighborhoods in Nairobi by TTM revenue:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
 
-2️⃣ Replace Missing Fees & Adjust Cleaning Fee Revenue
+## 2️⃣ Replace Missing Fees & Adjust Cleaning Fee Revenue
 ### 🧩 Business Question
 
 Replace any missing fee values (e.g. cleaning_fee) with city-level average cleaning fee, then compute adjusted city / neighborhood cleaning-fee metrics.
 
-### 🧮 SQL Solution
+🧮 SQL Solution
 ```sql
 ------------------------------------------------------------
 -- 2. Replace Missing Cleaning Fees with City-Level Averages
@@ -229,12 +229,12 @@ GROUP BY
 ORDER BY 
     AVG(Cleaning_Fee) DESC;
 ```
-### 📊 Sample Output
+📊 Sample Output
 Average cleaning fee by Nairobi neighborhood after imputation:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output2.png)
 
-3️⃣ Occupancy Buckets (Last 90 Days, Pivot)
+## 3️⃣ Occupancy Buckets (Last 90 Days, Pivot)
 ### 🧩 Business Question
 
 Create a pivot-style query that, for each neighborhood, buckets average last 90 reserved days into:
@@ -245,7 +245,7 @@ Moderate Occupancy: 31–60 days
 
 High Occupancy: 61–90 days
 
-### 🧮 SQL Solution
+🧮 SQL Solution
 
 ```sql
 ------------------------------------------------------------
@@ -305,8 +305,8 @@ Neighborhood-level occupancy buckets for the last 90 days:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output3.png)
 
-4️⃣ Real Estate Price-to-Average Nightly Rate Ratio
-🧩 Business Question
+## 4️⃣ Real Estate Price-to-Average Nightly Rate Ratio
+### 🧩 Business Question
 
 Join Airbnb neighborhoods with Nairobi real estate locations and, for each Location:
 
@@ -372,8 +372,8 @@ Real estate locations ranked by price vs. short-term rental economics:
 ![Neighborhood Revenue Output](SQL%20Docs/output4.png)
 
 
-5️⃣ City / Neighborhood Contribution to National Revenue
-🧩 Business Question
+## 5️⃣ City / Neighborhood Contribution to National Revenue
+### 🧩 Business Question
 
 Aggregate Airbnb listings by city / neighborhood and compute:
 
@@ -454,8 +454,8 @@ Top Nairobi neighborhoods by share of total rental revenue:
 ![Neighborhood Revenue Output](SQL%20Docs/output5.png)
 
 
-6️⃣ Strongest Investment Fundamentals (Last 12 Months)
-🧩 Business Question
+## 6️⃣ Strongest Investment Fundamentals (Last 12 Months)
+### 🧩 Business Question
 
 “Which cities delivered the strongest investment fundamentals over the last 12 months?”
 
@@ -555,8 +555,8 @@ Cities ranked by investment fundamentals:
 ![Neighborhood Revenue Output](SQL%20Docs/output6.png)
 
 
-7️⃣ Highest Revenue per Square Foot by Bedroom Type
-🧩 Business Question
+## 7️⃣ Highest Revenue per Square Foot by Bedroom Type
+### 🧩 Business Question
 
 “Which bedroom type yields the highest revenue per square foot in each city?”
 
@@ -654,8 +654,8 @@ Best bedroom configuration by revenue per square foot:
 ![Neighborhood Revenue Output](SQL%20Docs/output7.png)
 
 
-8️⃣ Strongest Future Booking Pace & ADR Trend
-🧩 Business Question
+## 8️⃣ Strongest Future Booking Pace & ADR Trend
+### 🧩 Business Question
 
 “Which cities show the strongest future booking pace, and how does future ADR compare to historical ADR?”
 
@@ -740,8 +740,8 @@ Historical vs future occupancy and ADR (raw values):
 ![Neighborhood Revenue Output](SQL%20Docs/output8.png)
 
 
-9️⃣ Future Booking Pace vs Historical (Final – USD & % Formatting)
-##🧩 Business Question
+## 9️⃣ Future Booking Pace vs Historical (Final – USD & % Formatting)
+### 🧩 Business Question
 
 Use the real production tables to compare historical vs future occupancy & ADR, fully formatted:
 
@@ -751,7 +751,7 @@ Historical vs Future ADR (USD)
 
 Trend columns with clean formatting
 
-## 🧮 SQL Solution
+🧮 SQL Solution
 
 ```sql
 Copy code
@@ -865,7 +865,7 @@ ORDER BY
     + (Future_ADR_USD - Hist_ADR_USD) DESC;
 ```
 
-### 📊 Sample Output
+📊 Sample Output
 Formatted comparison of historical vs future occupancy and ADR (USD + %):
 
 ![Neighborhood Revenue Output](SQL%20Docs/output9.png)
