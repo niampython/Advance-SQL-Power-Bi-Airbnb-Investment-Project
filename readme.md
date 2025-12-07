@@ -874,19 +874,19 @@ Formatted comparison of historical vs future occupancy and ADR (USD + %):
 ## ⚙️ Challenges & How I Overcame Them
 ### 🔗 Joining Airbnb Listings to Neighborhoods
 
-Challenge: Airbnb data was keyed by latitude/longitude, while neighborhood names lived in a separate coordinates_kenya table.
+***Challenge***: Airbnb data was keyed by latitude/longitude, while neighborhood names lived in a separate coordinates_kenya table.
 
 Solution: Used precise lat/long joins plus careful cleaning of coordinate columns to map listings to the correct neighborhood, enabling neighborhood-level revenue and occupancy analysis.
 
 ### 💱 Cleaning Currency & Converting KES → USD
 
-Challenge: Monetary values (like Price in Nairobi_Property_Pricing) were stored as strings with prefixes like "KSH " and embedded spaces.
+***Challenge***: Monetary values (like Price in Nairobi_Property_Pricing) were stored as strings with prefixes like "KSH " and embedded spaces.
 
 Solution: Applied REPLACE and CAST in SQL to turn them into numeric types, then consistently applied a KES → USD exchange rate to standardize all financial metrics for investors.
 
 ### 🧽 Handling Missing & Zero Cleaning Fees
 
-Challenge: Many hosts had cleaning_fee = 0 or missing values, which distorted average fee calculations.
+***Challenge***: Many hosts had cleaning_fee = 0 or missing values, which distorted average fee calculations.
 
 Solution: Built a two-stage CTE:
 
@@ -896,13 +896,13 @@ Use COALESCE to impute missing/zero cleaning fees based on those averages.
 
 ### ⏱️ Time-Series Alignment Across Multiple Metric Tables
 
-Challenge: Historical and future tables (occupancy_last_12_month, occupancyFuture_next_30_days, rateByDailyAverage_last_12_month, rateFuture_next_180_days, etc.) used different date formats and granularities.
+***Challenge***: Historical and future tables (occupancy_last_12_month, occupancyFuture_next_30_days, rateByDailyAverage_last_12_month, rateFuture_next_180_days, etc.) used different date formats and granularities.
 
 Solution: Used TRY_CONVERT(date, [Date]) to normalize all date columns and joined on clean date keys, enabling accurate calculation of MoM revenue trends and future booking pace.
 
 ### 🖥️ Environment & Connectivity (Python → SQL Server)
 
-Challenge: On a new machine, Python could not connect to SQL Server due to driver issues and missing environments (ODBC error 08001, ipykernel issues in VS Code).
+***Challenge***: On a new machine, Python could not connect to SQL Server due to driver issues and missing environments (ODBC error 08001, ipykernel issues in VS Code).
 
 Solution:
 
@@ -914,7 +914,7 @@ Used SQLAlchemy’s connection string with Windows authentication and the correc
 
 ### 📈 Modeling Investment Metrics for Real-World Decisions
 
-Challenge: Translating raw Airbnb metrics into something an investor can act on (e.g., “Is Nakuru better than Nairobi?”).
+***Challenge***: Translating raw Airbnb metrics into something an investor can act on (e.g., “Is Nakuru better than Nairobi?”).
 
 Solution:
 
