@@ -947,7 +947,7 @@ Defined clear investment scores combining ADR, occupancy, and revenue trends.
 Built per-sqft revenue metrics by bedroom type to guide property selection.
 
 Surfaced everything in Power BI with investor-friendly visuals and filterable views.
-
+---
 ## 🧾 Investor Takeaways
 
 From this analysis, an investor can:
@@ -967,19 +967,19 @@ Quantify how future occupancy and ADR trends are moving compared to the last 12 
 This README ties together the SQL analytics layer and the Power BI visualization layer to provide a full, end-to-end view of short-term rental investment potential in Kenya.
 
 ## 🚀 How to Use This Repository
-1. Run the SQL Scripts
+### 1. Run the SQL Scripts
 
 Create and load the underlying tables in SQL Server using the Python ETL scripts.
 
 Execute each query in this README to reproduce the analytical outputs.
 
-2. Connect Power BI
+### 2. Connect Power BI
 
 Point Power BI to the same SQL Server database (Airbnb_data).
 
 Recreate or extend the provided dashboard visuals.
 
-3. Adapt to Other Markets
+### 3. Adapt to Other Markets
 
 Replace Kenya-specific tables with other countries/regions.
 
