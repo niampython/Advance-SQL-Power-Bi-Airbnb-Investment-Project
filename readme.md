@@ -42,8 +42,9 @@ The SQL problems below are framed as analytics interview-style questions, each a
 
 ### 📽 Presentation Slide Deck
 
-👉 **[Click to Download Power BI Presentation (.pptx)](Power%20BI/Advance%20SQL-Power%20Bi%20%20Airbnb%20Investment%20Project%20Power%20Point.pptx)**  
-*(Opens directly in PowerPoint)*
+👉 **[Download Power BI Presentation (.pptx)](https://github.com/niampython/Advance-SQL-Power-Bi-Airbnb-Investment-Project/raw/main/Power%20BI/Advance%20SQL-Power%20Bi%20%20Airbnb%20Investment%20Project%20Power%20Point.pptx)**  
+*(Click to download — opens in PowerPoint)*
+
 
 ---
 
