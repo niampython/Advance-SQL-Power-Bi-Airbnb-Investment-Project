@@ -25,6 +25,25 @@ Data focuses on major Kenyan markets such as Nairobi, Mombasa, Nakuru, Kiambu, a
 The SQL problems below are framed as analytics interview-style questions, each answered with a documented T-SQL solution and a sample output.
 
 ---
+## 📊 Presentation Preview
+
+### Slide 1 — Nairobi Airbnb Investment Analysis
+<img src="Power%20BI/images/slide1.png" width="700">
+
+---
+
+### Slide 2 — Real Estate Pricing Analysis
+<img src="Power%20BI/images/slide2.png" width="700">
+
+---
+
+### Slide 3 — Kenya Airbnb Metrics Dashboard
+<img src="Power%20BI/images/slide3.png" width="700">
+
+---
+
+> 📥 **Download the full slide deck above under _Presentation Slide Deck_**
+---
 
 ## 2. Tools & Technologies
 
@@ -969,13 +988,5 @@ Future vs historical booking trends
 
 Property-type and bedroom-level performance.
 
-
-## 📊 Presentation Preview
-
-<img src="Power%20BI/images/slide1.png" width="600">
-<img src="Power%20BI/images/slide2.png" width="600">
-<img src="Power%20BI/images/slide3.png" width="600">
-
-> Full slide deck available above ⬆ under **Presentation Slide Deck**
 
 
