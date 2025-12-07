@@ -970,11 +970,12 @@ Future vs historical booking trends
 Property-type and bedroom-level performance.
 
 
-### 📽 Presentation Slide Deck
+## 📊 Presentation Preview
 
-💾 **[Download Power BI Project Presentation (.pptx)](### 📽 Presentation Slide Deck
+<img src="Power%20BI/images/slide1.png" width="600">
+<img src="Power%20BI/images/slide2.png" width="600">
+<img src="Power%20BI/images/slide3.png" width="600">
 
-💾 **[Download Power BI Project Presentation (.pptx)](Power BI/Advance SQL-Power Bi  Airbnb Investment Project Power Point.pptx)**  
-*(Click to download — opens in PowerPoint)*.pptx)**  
+> Full slide deck available above ⬆ under **Presentation Slide Deck**
 
 
