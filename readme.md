@@ -98,7 +98,7 @@ Then **rank neighborhoods within their City** by total `ttm_revenue_native`.
 
 ---
 
- 🧮 SQL Solution
+ 🧮 ***SQL Solution***
 ```sql
 ------------------------------------------------------------
 -- 1. Neighborhood Revenue Ranking
@@ -165,7 +165,7 @@ CROSS APPLY (
 ORDER BY 
     TTM_Revenue_Native_by_Neighborhood_Rank ASC;
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Top-performing neighborhoods in Nairobi by TTM revenue:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output1.png)
@@ -175,7 +175,7 @@ Top-performing neighborhoods in Nairobi by TTM revenue:
 
 Replace any missing fee values (e.g. cleaning_fee) with city-level average cleaning fee, then compute adjusted city / neighborhood cleaning-fee metrics.
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 ```sql
 ------------------------------------------------------------
 -- 2. Replace Missing Cleaning Fees with City-Level Averages
@@ -229,7 +229,7 @@ GROUP BY
 ORDER BY 
     AVG(Cleaning_Fee) DESC;
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Average cleaning fee by Nairobi neighborhood after imputation:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output2.png)
@@ -300,7 +300,7 @@ Sample Output
 
 Neighborhood-level occupancy buckets for the last 90 days:
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Neighborhood-level occupancy buckets for the last 90 days:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output3.png)
@@ -314,7 +314,7 @@ Calculate annual stay cost (ADR × 365)
 
 Compute Real Estate Price–to–Avg Nightly Rate ratio to compare buying a property vs. renting it as a guest.
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 
 ```sql
 ------------------------------------------------------------
@@ -366,7 +366,7 @@ WHERE
 GROUP BY 
     R.Location;
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Real estate locations ranked by price vs. short-term rental economics:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output4.png)
@@ -385,7 +385,7 @@ Each city’s (or neighborhood’s) percent contribution
 
 Rank by total revenue
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 
 ```sql
 ------------------------------------------------------------
@@ -448,7 +448,7 @@ SELECT
     ) AS [Rank of Each City Percentage Contribution]
 FROM Total_Revenue;
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Top Nairobi neighborhoods by share of total rental revenue:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output5.png)
@@ -463,7 +463,7 @@ Use the composite score:
 
 Score = (Average Daily Rate × Average Occupancy) + Average Monthly Revenue Change
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 ```sql
 /*===========================================================
   6. Strongest Investment Fundamentals (Last 12 Months)
@@ -549,7 +549,7 @@ FROM CityMetrics
 ORDER BY 
     Investment_Score DESC;
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Cities ranked by investment fundamentals:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output6.png)
@@ -564,7 +564,7 @@ Use:
 
 Score = Avg Monthly Revenue / Estimated SqFt
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 
 ```sql
 /*===========================================================
@@ -648,7 +648,7 @@ WHERE rn = 1
 ORDER BY 
     Revenue_Per_SqFt DESC;
 ```
-📊 Sample Output
+📊 ***Sample Output***
 Best bedroom configuration by revenue per square foot:
 
 ![Neighborhood Revenue Output](SQL%20Docs/output7.png)
@@ -659,7 +659,7 @@ Best bedroom configuration by revenue per square foot:
 
 “Which cities show the strongest future booking pace, and how does future ADR compare to historical ADR?”
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 
 ```sql
 /*===========================================================
@@ -734,7 +734,7 @@ ORDER BY
     + (Future_180Day_ADR - Hist_ADR) DESC;
 ```
 
-📊 Sample Output
+📊 ***Sample Output***
 Historical vs future occupancy and ADR (raw values):
 
 ![Neighborhood Revenue Output](SQL%20Docs/output8.png)
@@ -751,7 +751,7 @@ Historical vs Future ADR (USD)
 
 Trend columns with clean formatting
 
-🧮 SQL Solution
+🧮 ***SQL Solution***
 
 ```sql
 Copy code
@@ -865,7 +865,7 @@ ORDER BY
     + (Future_ADR_USD - Hist_ADR_USD) DESC;
 ```
 
-📊 Sample Output
+📊 ***Sample Output***
 Formatted comparison of historical vs future occupancy and ADR (USD + %):
 
 ![Neighborhood Revenue Output](SQL%20Docs/output9.png)
