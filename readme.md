@@ -43,19 +43,11 @@ The SQL problems below are framed as analytics interview-style questions, each a
 ## 📊 Live Power BI Dashboard — *Click to Interact*
 
 <p align="center">
-  <a href="https://app.powerbi.com/reportEmbed?reportId=31ebb702-b9c0-4801-bf6a-b589d4ba3bc3&autoAuth=true&ctid=8a192eec-453e-4f06-806b-8f06b382f1d9" target="_blank">
-    <img src="Docs/airbnb_dashboard_preview.png" width="800" alt="Power BI Dashboard Preview"/>
-  </a>
-</p>
-
-<p align="center">
   🔗 <a href="https://app.powerbi.com/reportEmbed?reportId=31ebb702-b9c0-4801-bf6a-b589d4ba3bc3&autoAuth=true&ctid=8a192eec-453e-4f06-806b-8f06b382f1d9" target="_blank"><b>Click Here to Open the Interactive Dashboard</b></a>
 </p>
 
 > *(Best viewed on desktop for full interactivity)*
 
-
-> 📥 **Download the full slide deck above under _Presentation Slide Deck_**
 ---
 
 ## 2. Tools & Technologies
