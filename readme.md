@@ -40,6 +40,11 @@ The SQL problems below are framed as analytics interview-style questions, each a
 ### Slide 3 — Kenya Airbnb Metrics Dashboard
 <img src="Power%20BI/images/slide3.png" width="700">
 
+### 📽 Presentation Slide Deck
+
+👉 **[Click to Download Power BI Presentation (.pptx)](Power%20BI/Advance%20SQL-Power%20Bi%20%20Airbnb%20Investment%20Project%20Power%20Point.pptx)**  
+*(Opens directly in PowerPoint)*
+
 ---
 
 > 📥 **Download the full slide deck above under _Presentation Slide Deck_**
