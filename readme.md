@@ -895,20 +895,20 @@ The strongest occupancy trends
 
 The best performing property types
 
-⚙️ Challenges & How I Overcame Them
-🔗 Joining Airbnb Listings to Neighborhoods
+##⚙️ Challenges & How I Overcame Them
+###🔗 Joining Airbnb Listings to Neighborhoods
 
 Challenge: Airbnb data was keyed by latitude/longitude, while neighborhood names lived in a separate coordinates_kenya table.
 
 Solution: Used precise lat/long joins plus careful cleaning of coordinate columns to map listings to the correct neighborhood, enabling neighborhood-level revenue and occupancy analysis.
 
-💱 Cleaning Currency & Converting KES → USD
+###💱 Cleaning Currency & Converting KES → USD
 
 Challenge: Monetary values (like Price in Nairobi_Property_Pricing) were stored as strings with prefixes like "KSH " and embedded spaces.
 
 Solution: Applied REPLACE and CAST in SQL to turn them into numeric types, then consistently applied a KES → USD exchange rate to standardize all financial metrics for investors.
 
-🧽 Handling Missing & Zero Cleaning Fees
+###🧽 Handling Missing & Zero Cleaning Fees
 
 Challenge: Many hosts had cleaning_fee = 0 or missing values, which distorted average fee calculations.
 
@@ -918,13 +918,13 @@ Compute city + neighborhood–level average cleaning fee.
 
 Use COALESCE to impute missing/zero cleaning fees based on those averages.
 
-⏱️ Time-Series Alignment Across Multiple Metric Tables
+###⏱️ Time-Series Alignment Across Multiple Metric Tables
 
 Challenge: Historical and future tables (occupancy_last_12_month, occupancyFuture_next_30_days, rateByDailyAverage_last_12_month, rateFuture_next_180_days, etc.) used different date formats and granularities.
 
 Solution: Used TRY_CONVERT(date, [Date]) to normalize all date columns and joined on clean date keys, enabling accurate calculation of MoM revenue trends and future booking pace.
 
-🖥️ Environment & Connectivity (Python → SQL Server)
+###🖥️ Environment & Connectivity (Python → SQL Server)
 
 Challenge: On a new machine, Python could not connect to SQL Server due to driver issues and missing environments (ODBC error 08001, ipykernel issues in VS Code).
 
@@ -936,7 +936,7 @@ Registered the environment as a Jupyter kernel for VS Code.
 
 Used SQLAlchemy’s connection string with Windows authentication and the correct SQL Server instance to reliably load all county CSVs into [Airbnb_data].
 
-📈 Modeling Investment Metrics for Real-World Decisions
+##📈 Modeling Investment Metrics for Real-World Decisions
 
 Challenge: Translating raw Airbnb metrics into something an investor can act on (e.g., “Is Nakuru better than Nairobi?”).
 
@@ -948,7 +948,7 @@ Built per-sqft revenue metrics by bedroom type to guide property selection.
 
 Surfaced everything in Power BI with investor-friendly visuals and filterable views.
 
-🧾 Investor Takeaways
+##🧾 Investor Takeaways
 
 From this analysis, an investor can:
 
@@ -966,7 +966,7 @@ Quantify how future occupancy and ADR trends are moving compared to the last 12 
 
 This README ties together the SQL analytics layer and the Power BI visualization layer to provide a full, end-to-end view of short-term rental investment potential in Kenya.
 
-🚀 How to Use This Repository
+##🚀 How to Use This Repository
 1. Run the SQL Scripts
 
 Create and load the underlying tables in SQL Server using the Python ETL scripts.
